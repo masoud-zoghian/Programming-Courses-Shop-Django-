@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load render_partial %}
+{% block contents %}
+    <div class="container">
+      <div class="row">
+        <!--Right Part Start -->
+        <aside id="column-right" class="col-sm-3 hidden-xs">
+            {% render_partial 'eshop_profile.views.profile_sidebar' %}
+        </aside>
+        <!--Right Part End -->
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-9">
+            <h1 class="title">پنل کاربر</h1>
+        </div>
+        <!--Middle Part End -->
+      </div>
+    </div>
+{% endblock %}

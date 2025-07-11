@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% load render_partial %}
+{% load static %}
+{% block contents %}
+<div class="container">
+      <!-- Breadcrumb Start-->
+      <ul class="breadcrumb">
+        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+        <li><a href="category.html">محصولات</a></li>
+      </ul>
+      <!-- Breadcrumb End-->
+      <div class="row">
+        <!--Middle Part Start-->
+        <div id="content" class="col-sm-9">
+          <h1 class="title">لیست محصولات</h1>
+          <br>
+          <div class="row products-category">
+              {% for product in page_obj %}
+                {% include 'product_item_component.html' with product=product %}
+              {% endfor %}
+          </div>
+          <div class="row">
+            <div class="col-sm-6 text-left">
+              <ul class="pagination">
+                {% if page_obj.has_previous %}
+                  <li><a href="?page={{ page_obj.previous_page_number }}">قبلی</a></li>
+                {% endif %}
+                {% for page in paginator.page_range  %}
+                  {% if page == page_obj.number %}
+                        <li class="active"><a href="?page={{ page }}">{{ page }}</a></li>
+                  {% else %}
+                        <li><a href="?page={{ page }}">{{ page }}</a></li>
+                  {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                  <li><a href="?page={{ page_obj.next_page_number }}">بعدی</a></li>
+                {% endif %}
+              </ul>
+            </div>
+            <div class="col-sm-6 text-right">نمایش 1 تا 12 از 15 (مجموع 2 صفحه)</div>
+          </div>
+        </div>
+        <!--Middle Part End -->
+        <!--Right Part Start -->
+        <aside id="column-right" class="col-sm-3 hidden-xs">
+          {% render_partial 'products_categories_partial' %}
+        </aside>
+        <!--Right Part End -->
+      </div>
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+<div class="product-layout product-grid col-lg-5ths col-md-5ths col-sm-4 col-xs-12">
+  <div class="product-thumb">
+    <div class="image"><a href="{{product.get_product_detail_url}}"><img src="{{ product.image.url }}" alt=" {{ product.title }} " title=" {{ product.title }}" class="img-responsive"></a></div>
+    <div>
+      <div class="caption">
+        <h4><a href="{{product.get_product_detail_url}}"> {{ product.title }} </a></h4>
+        <p class="description">{{ product.description}}</p>
+        <p class="price"><span class="price">{{product.price}} تومان</span></p>
+      </div>
+      <div class="button-group">
+        <a href="{{product.get_product_detail_url}}">
+          <button class="btn-primary" type="button"><span>مشاهده محصول</span></button>
+        </a>
+        <div class="add-to-links">
+          <button type="button" data-toggle="tooltip" title="" onclick="" data-original-title="افزودن به علاقه مندی ها"><i class="fa fa-heart"></i> <span>افزودن به علاقه مندی ها</span></button>
+          <button type="button" data-toggle="tooltip" title="" onclick="" data-original-title="مقایسه این محصول"><i class="fa fa-exchange"></i> <span>مقایسه این محصول</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

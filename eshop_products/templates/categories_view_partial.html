@@ -1,0 +1,10 @@
+<a href="{% url 'products:products_list' %}">
+    <h3 class="subtitle">دسته ها</h3>
+</a>
+<div class="box-category">
+<ul>
+    {% for category in categories %}
+      <li><a href="/products/{{ category.name }}">{{ category.title }}</a></li>
+    {% endfor %}
+</ul>
+</div>
