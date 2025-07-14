@@ -1,6 +1,8 @@
 from django.db import models
 import os
 import random
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 def get_file_extension(file):
     base_name = os.path.basename(file)
@@ -24,6 +26,12 @@ class Settings(models.Model):
     about = models.TextField(verbose_name='متن درباره ما')
     instagram = models.CharField(max_length=250, verbose_name='آدرس صفحه اینستاگرام')
     logo = models.ImageField(upload_to=upload_image,null=True,blank=True,verbose_name='تصویر')
+    image_thumbnail = ImageSpecField(
+        source='logo',
+        processors=[ResizeToFill(32,32)],
+        format='JPEG',
+        options={'quality': 90}
+    )
 
     def __str__(self):
         return 'تنظیمات سایت'
