@@ -1,6 +1,8 @@
 from django.db import models
 import os
 import random
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 def get_file_extension(file):
     base_name = os.path.basename(file)
@@ -19,6 +21,12 @@ class Slider(models.Model):
     link = models.URLField(max_length=200, verbose_name='لینک')
     description = models.TextField(verbose_name='توضیحات')
     image = models.ImageField(upload_to=upload_image,null=True,blank=True,verbose_name='تصویر')
+    image_thumbnail = ImageSpecField(
+        source='image',
+        processors=[ResizeToFill(2132,733)],
+        format='JPEG',
+        options={'quality': 90}
+    )
 
     class Meta:
         verbose_name = 'اسلایدر'

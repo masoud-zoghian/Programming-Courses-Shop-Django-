@@ -11,7 +11,7 @@ from eshop_order.forms import UserNewOrderForm
 # Create your views here.
 class ProductsList(ListView):
     template_name = 'products_list.html'
-    paginate_by = 10
+    paginate_by = 5
 
     def get_queryset(self):
         return Product.objects.get_active_products()

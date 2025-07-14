@@ -9,8 +9,6 @@ from eshop_products.models import Product
 def header(request):
     setting = Settings.objects.first()
     context = {
-        'item2':'item2',
-        "menu_item":"منوی سفارشی از رندر پارشیال",
         'setting': setting,
     }
     return render(request, 'base/header.html', context)

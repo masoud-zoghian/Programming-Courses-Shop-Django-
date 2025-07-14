@@ -25,7 +25,7 @@ def add_new_order(request):
         if count < 0:
             count = 1
         order.orderdetail_set.create(product_id=product.id, count=count, price=product.price)
-        return redirect(f'/products/{product.id}/{product.title.replace(' ', '-')}')
+        return redirect(f"/products/{product.id}/{product.title.replace(' ', '-')}")
 
 @login_required(login_url='/login')
 def cart(request):

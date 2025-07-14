@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'eshop_settings',
     'eshop_order',
     'eshop_profile',
+    # package
+    'imagekit'
 ]
 
 MIDDLEWARE = [
