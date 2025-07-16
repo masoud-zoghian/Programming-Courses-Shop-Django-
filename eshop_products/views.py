@@ -26,7 +26,6 @@ def product_detail(request, *args, **kwargs):
         raise Http404('محصول مورد نظر یافت نشد!')
 
     gallery = ProductGallery.objects.filter(product_id=get_product_id)
-    # print(gallery)
 
     related_products = Product.objects.get_queryset().filter(categories__product=product).distinct()
     print(related_products)
@@ -36,19 +35,15 @@ def product_detail(request, *args, **kwargs):
     
     featured_products = Product.objects.filter(featured=True)
 
-
     context = {
         'product':product,
         'gallery':gallery,
         'related_products':related_products,
         'new_order_form':new_order_form,
-        'featured_products':featured_products,
-        
+        'featured_products':featured_products,   
     }
+    
     tag = Tag.objects.first()
-    # print(tag)
-    # print(tag.products.all())
-    # print(product.tag_set.all())
 
     return  render(request, 'product_detail.html', context)
 

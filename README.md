@@ -29,23 +29,20 @@ It was created for my learning and practice in web development.
 
 ## 📸 Preview
 
-#### ⚙️ Admin Panel
-<img src="assets/image/image/admin.png" width="200px" alt="admin page"/>
+#### ⚙️ Admin Panel , Login Page , Registration Page
+<p align="center">
+<img src="assets/image/image/admin.png" width="30%" height=60px alt="admin page"/>
+<img src="assets/image/image/login.png" width="30%" height=60px alt="login page"/>
+<img src="assets/image/image/register.png" width="30%" height=60px alt="register page"/>
+</p>
 
-#### 🔐 Login Page
-<img src="assets/image/image/login.png" width="200px" alt="login page"/>
+#### 🛒 Shopping Cart Page , Contact Us Page , Products / Courses Page
+<p align="center">
+<img src="assets/image/image/cart.png" width="30%" height=60px alt="cart page"/>
+<img src="assets/image/image/contact.png" width="30%" height=60px alt="contact page"/>
+<img src="assets/image/image/products_list.png" width="30%" height=60px alt="products page"/>
+</p>
 
-#### 📝 Registration Page
-<img src="assets/image/image/register.png" width="200px" alt="register page"/>
-
-#### 🛒 Shopping Cart Page
-<img src="assets/image/image/cart.png" width="200px" alt="cart page"/>
-
-#### ✉️ Contact Us Page
-<img src="assets/image/image/contact.png" width="200px" alt="contact page"/>
-
-#### 📦 Products / Courses Page
-<img src="assets/image/image/products_list.png" width="200px" alt="products page"/>
 
 ---
 
@@ -53,9 +50,9 @@ It was created for my learning and practice in web development.
 
 
 - <img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="20px" alt="GitHub logo" style="vertical-align: middle;"/>&nbsp;
-<a href="https://github.com/masoud-zoghian">
+<a href="https://github.com/masoud-zoghian" style="text-decoration:none; color:inherit; vertical-align: middle;">
 masoud-zoghian</a>
 
 - <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" width="20px" alt="LinkedIn logo" style="vertical-align: middle;"/>&nbsp;
-<a href="https://www.linkedin.com/in/masoud-zoghian">
+<a href="https://www.linkedin.com/in/masoud-zoghian" style="text-decoration:none; color:inherit; vertical-align: middle;">
 masoud-zoghian</a>
