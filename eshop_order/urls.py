@@ -7,5 +7,5 @@ urlpatterns = [
     path('cart',cart),
     path('request/', send_request, name='request'),
     path('verify/<order_id>', verify, name='verify'),
-    path('remove-cart-item/<detail_id>', remove_cart_item),
+    path('remove-cart-item/<detail_id>', remove_cart_item, name=' remove_cart_item'),
 ]

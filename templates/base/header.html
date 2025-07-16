@@ -57,8 +57,8 @@
       <div class="container">
         <div class="table-container">
           <!-- Logo Start -->
-          <div class="col-table-cell col-lg-6 col-md-6 col-sm-12 col-xs-12 inner">
-            <div id="logo"><a href="index.html"><img class="img-responsive" src="{%static 'image/logo.png' %}" title="MarketShop" alt="MarketShop" /></a></div>
+          <div class="col-sm-3">
+            <div id="logo"><a href="/#"><img class="img-responsive" src="{% static 'image/image/codity.png' %}" title="فروشگاه کدیتی" alt="فروشگاه کدیتی" /></a></div>
           </div>
           <!-- Logo End -->
           <!-- جستجو Start-->
@@ -96,19 +96,17 @@
                 <ul>
                   <li><a href="{% url 'login' %}">ورود</a></li>
                   <li><a href="{% url 'register' %}">ثبت نام</a></li>
-                  <li><a href="{% url 'products:products_list' %}">محصولات</a></li>
-                  <li><a href="">سبد خرید</a></li>
-                  <li><a href="checkout.html">تسویه حساب</a></li>
-                  <li><a href="search.html">جستجو</a></li>
+                  <li><a href="{% url 'contact' %}">تماس با ما</a></li>
                 </ul>
                 <ul>
-                  <li><a href="about-us.html">درباره ما</a></li>
-                  <li><a href="contact-us.html">تماس با ما</a></li>
+                  <li><a href="{% url 'products:products_list' %}">محصولات</a></li>
+                  <li><a href="{{ '/cart' }}">سبد خرید</a></li>
+                  <li><a href="{% url 'eshop_order:request' %}">تسویه حساب</a></li>
                 </ul>
               </div>
             </li>
             <li class="contact-link"><a href="{% url 'contact' %}">تماس با ما</a></li>
-            <li class="custom-link-right"><a href="#" target="_blank"> همین حالا بخرید!</a></li>
+            <li class="custom-link-right"><a href="{% url 'products:products_list' %}" target="_blank"> همین حالا بخرید!</a></li>
           </ul>
         </div>
       </nav>

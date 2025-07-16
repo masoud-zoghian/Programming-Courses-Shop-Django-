@@ -4,9 +4,10 @@
     <div class="container">
       <!-- Breadcrumb Start-->
       <ul class="breadcrumb">
-        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="index.html" itemprop="url"><span itemprop="title"><i class="fa fa-home"></i></span></a></li>
-        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="category.html" itemprop="url"><span itemprop="title">الکترونیکی</span></a></li>
-        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="product.html" itemprop="url"><span itemprop="title">لپ تاپ ایلین ور</span></a></li>
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/#" itemprop="url"><span itemprop="title"><i class="fa fa-home"></i></span></a></li>
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="{% url 'products:products_list' %}" itemprop="url"><span itemprop="title">محصولات</span></a></li>
+        <li itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="" itemprop="url"><span itemprop="title">{{product.title}}</span></a></li>
+
       </ul>
       <!-- Breadcrumb End-->
       <div class="row">
@@ -16,7 +17,7 @@
             <h1 class="title" itemprop="name">{{ product.title }}</h1>
             <div class="row product-info">
               <div class="col-sm-6">
-                <div class="image"><div style="height:350px;width:350px;" class="zoomWrapper">
+                <div class="image"><div style="height:150px;width:350px;" class="zoomWrapper">
                   <img class="img-responsive" itemprop="image" id="zoom_01" src="{{ product.image.url }}" alt="{{product.title}}" style="position: absolute;">
                 </div> </div>
                   <div class="image-additional" id="gallery_01">
@@ -28,30 +29,16 @@
                   </div>
               </div>
               <div class="col-sm-6">
-                <ul class="list-unstyled description">
-                  <li><b>برند :</b> <a href="#"><span itemprop="brand">اپل</span></a></li>
-                  <li><b>کد محصول :</b> <span itemprop="mpn">محصولات 17</span></li>
-                  <li><b>امتیازات خرید:</b> 700</li>
-                  <li><b>وضعیت موجودی :</b> <span class="instock">موجود</span></li>
-                </ul>
+                <h1 class="title" style="font-size:18px;" itemprop="name">نام ناشر: {{ product.publisher_name }}</h1>
+                <h1 class="title" style="font-size:18px;" itemprop="name">مدت زمان دوره: {{ product.course_duration }}</h1>
+              </div>
+              <div class="col-sm-6">
                 <ul class="price-box">
                   <li class="price" itemprop="offers" itemscope="" itemtype="http://schema.org/Offer">
-                    <span class="price">تومان {{ product.price}}</span></li>
-                  <li></li>
-                  <li>بدون مالیات : 9 میلیون تومان</li>
+                    <span class="price">تومان {{ product.price}}</span>
+                  </li>
                 </ul>
                 <div id="product">
-                  <h3 class="subtitle">انتخاب های در دسترس</h3>
-                  <div class="form-group required">
-                    <label class="control-label">رنگ</label>
-                    <select class="form-control" id="input-option200" name="option[200]">
-                      <option value=""> --- لطفا انتخاب کنید --- </option>
-                      <option value="4">مشکی </option>
-                      <option value="3">نقره ای </option>
-                      <option value="1">سبز </option>
-                      <option value="2">آبی </option>
-                    </select>
-                  </div>
                   <div class="cart">
                     <form action="/add_new_order" method="post">
                       {%csrf_token%}
@@ -67,120 +54,18 @@
                         <button type="submit" id="button-cart" class="btn btn-primary btn-lg">افزودن به سبد خرید</button>
                       </div>
                     </form>
-                    <div>
-                      <button type="button" class="wishlist" onclick=""><i class="fa fa-heart"></i> افزودن به علاقه مندی ها</button>
-                      <br>
-                      <button type="button" class="wishlist" onclick=""><i class="fa fa-exchange"></i> مقایسه این محصول</button>
-                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <ul class="nav nav-tabs">
               <li class="active"><a href="#tab-description" data-toggle="tab">توضیحات</a></li>
-              <li><a href="#tab-specification" data-toggle="tab">مشخصات</a></li>
-              <li><a href="#tab-review" data-toggle="tab">بررسی (2)</a></li>
             </ul>
             <div class="tab-content">
               <div itemprop="description" id="tab-description" class="tab-pane active">
                 <div>
                     <p>{{product.description}}</p>
                 </div>
-              </div>
-              <div id="tab-specification" class="tab-pane">
-                <table class="table table-bordered">
-                  <thead>
-                    <tr>
-                      <td colspan="2"><strong>حافظه</strong></td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>تست 1</td>
-                      <td>8gb</td>
-                    </tr>
-                  </tbody>
-                  </table>
-                <table class="table table-bordered">
-                <thead>
-                    <tr>
-                      <td colspan="2"><strong>پردازشگر</strong></td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>تعداد هسته</td>
-                      <td>1</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div id="tab-review" class="tab-pane">
-                <form class="form-horizontal">
-                  <div id="review">
-                    <div>
-                      <table class="table table-striped table-bordered">
-                        <tbody>
-                          <tr>
-                            <td style="width: 50%;"><strong><span>هاروی</span></strong></td>
-                            <td class="text-right"><span>1395/1/20</span></td>
-                          </tr>
-                          <tr>
-                            <td colspan="2"><p>ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                              <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> </div></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <table class="table table-striped table-bordered">
-                        <tbody>
-                          <tr>
-                            <td style="width: 50%;"><strong><span>اندرسون</span></strong></td>
-                            <td class="text-right"><span>1395/1/20</span></td>
-                          </tr>
-                          <tr>
-                            <td colspan="2"><p>ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.</p>
-                              <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    <div class="text-right"></div>
-                  </div>
-                  <h2>یک بررسی بنویسید</h2>
-                  <div class="form-group required">
-                    <div class="col-sm-12">
-                      <label for="input-name" class="control-label">نام شما</label>
-                      <input type="text" class="form-control" id="input-name" value="" name="name">
-                    </div>
-                  </div>
-                  <div class="form-group required">
-                    <div class="col-sm-12">
-                      <label for="input-review" class="control-label">بررسی شما</label>
-                      <textarea class="form-control" id="input-review" rows="5" name="text"></textarea>
-                      <div class="help-block"><span class="text-danger">توجه :</span> HTML بازگردانی نخواهد شد!</div>
-                    </div>
-                  </div>
-                  <div class="form-group required">
-                    <div class="col-sm-12">
-                      <label class="control-label">رتبه</label>
-                      &nbsp;&nbsp;&nbsp; بد&nbsp;
-                      <input type="radio" value="1" name="rating">
-                      &nbsp;
-                      <input type="radio" value="2" name="rating">
-                      &nbsp;
-                      <input type="radio" value="3" name="rating">
-                      &nbsp;
-                      <input type="radio" value="4" name="rating">
-                      &nbsp;
-                      <input type="radio" value="5" name="rating">
-                      &nbsp;خوب</div>
-                  </div>
-                  <div class="buttons">
-                    <div class="pull-right">
-                      <button class="btn btn-primary" id="button-review" type="button">ادامه</button>
-                    </div>
-                  </div>
-                </form>
               </div>
             </div>
             <h3 class="subtitle">محصولات مرتبط</h3>
@@ -205,105 +90,32 @@
          </div>
         </div>
         <!--Middle Part End -->
-        <!--Right Part Start -->
+        <!--left Part Start -->
         <aside id="column-right" class="col-sm-3 hidden-xs">
-          <h3 class="subtitle">پرفروش ها</h3>
           <div class="side-item">
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/apple_cinema_30-50x50.jpg" alt="تی شرت کتان مردانه" title="تی شرت کتان مردانه" class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="product.html">تی شرت کتان مردانه</a></h4>
-                <p class="price"><span class="price-new">110000 تومان</span> <span class="price-old">122000 تومان</span> <span class="saving">-10%</span></p>
+          <!-- Featured محصولات Start-->
+          <h3 class="subtitle" style="border-bottom: none; margin-bottom:0">محصولات ویژه</h3>
+          <div class="product-list">
+            {% for product in featured_products %}
+              <div class="product-thumb clearfix">
+                <div class="image"><a href="{% url 'products:product_detail' product.id product.title %}"><img src="{{product.image.url}}"  alt="{{product.title}}" title="{{product.title}}" class="img-responsive" /></a></div>
+                  <div class="caption">
+                    <h4><a href="{% url 'products:product_detail' product.id product.title %}">{{product.title}}</a></h4>
+                    <p class="price"><span>{{product.price}} تومان</span></p>
+                  </div>
+                  <div class="button-group">
+                    <a href="{{product.get_product_detail_url}}">
+                      <button class="btn-primary" type="button"><span>مشاهده محصول</span></button>
+                    </a>
+                  </div>
               </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/iphone_1-50x50.jpg" alt="آیفون 7" title="آیفون 7" class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="product.html">آیفون 7</a></h4>
-                <p class="price"> 2200000 تومان </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span></div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/macbook_1-50x50.jpg" alt="آیدیا پد یوگا" title="آیدیا پد یوگا" class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="product.html">آیدیا پد یوگا</a></h4>
-                <p class="price"> 900000 تومان </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/sony_vaio_1-50x50.jpg" alt="کفش راحتی مردانه" title="کفش راحتی مردانه" class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="product.html">کفش راحتی مردانه</a></h4>
-                <p class="price"> <span class="price-new">32000 تومان</span> <span class="price-old">12 میلیون تومان</span> <span class="saving">-25%</span> </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/FinePix-Long-Zoom-Camera-50x50.jpg" alt="دوربین فاین پیکس" title="دوربین فاین پیکس" class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="product.html">دوربین فاین پیکس</a></h4>
-                <p class="price">122000 تومان</p>
-              </div>
-            </div>
+            {% endfor %}
           </div>
-          <div class="list-group">
-            <h3 class="subtitle">محتوای سفارشی</h3>
-            <p>این یک بلاک محتواست. هر نوع محتوایی شامل html، نوشته یا تصویر را میتوانید در آن قرار دهید. </p>
-            <p> در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها و شرایط سخت تایپ به پایان رسد وزمان مورد نیاز شامل حروفچینی دستاوردهای اصلی و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد. </p>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
-          </div>
-          <h3 class="subtitle">ویژه</h3>
-          <div class="side-item">
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/macbook_pro_1-50x50.jpg" alt=" کتاب آموزش باغبانی " title=" کتاب آموزش باغبانی " class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="product.html">کتاب آموزش باغبانی</a></h4>
-                <p class="price"> <span class="price-new">98000 تومان</span> <span class="price-old">120000 تومان</span> <span class="saving">-26%</span> </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/samsung_tab_1-50x50.jpg" alt="تبلت ایسر" title="تبلت ایسر" class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="product.html">تبلت ایسر</a></h4>
-                <p class="price"> <span class="price-new">98000 تومان</span> <span class="price-old">240000 تومان</span> <span class="saving">-5%</span> </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/apple_cinema_30-50x50.jpg" alt="تی شرت کتان مردانه" title="تی شرت کتان مردانه" class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="http://demo.harnishdesign.net/opencart/marketshop/v1/index.php?route=product/product&amp;product_id=42">تی شرت کتان مردانه</a></h4>
-                <p class="price"> <span class="price-new">110000 تومان</span> <span class="price-old">122000 تومان</span> <span class="saving">-10%</span> </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/nikon_d300_1-50x50.jpg" alt="دوربین دیجیتال حرفه ای" title="دوربین دیجیتال حرفه ای" class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="product.html">دوربین دیجیتال حرفه ای</a></h4>
-                <p class="price"> <span class="price-new">92000 تومان</span> <span class="price-old">98000 تومان</span> <span class="saving">-6%</span> </p>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/nikon_d300_5-50x50.jpg" alt="محصولات مراقبت از مو" title="محصولات مراقبت از مو" class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="product.html">محصولات مراقبت از مو</a></h4>
-                <p class="price"> <span class="price-new">66000 تومان</span> <span class="price-old">90000 تومان</span> <span class="saving">-27%</span> </p>
-                <div class="rating"> <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> </div>
-              </div>
-            </div>
-            <div class="product-thumb clearfix">
-              <div class="image"><a href="product.html"><img src="image/product/macbook_air_1-50x50.jpg" alt="لپ تاپ ایلین ور" title="لپ تاپ ایلین ور" class="img-responsive"></a></div>
-              <div class="caption">
-                <h4><a href="product.html">لپ تاپ ایلین ور</a></h4>
-                <p class="price"> <span class="price-new">10 میلیون تومان</span> <span class="price-old">12 میلیون تومان</span> <span class="saving">-5%</span> </p>
-              </div>
-            </div>
+          <!-- Featured محصولات End-->
           </div>
             {% render_partial 'products_categories_partial' %}
         </aside>
-        <!--Right Part End -->
+        <!--left Part End -->
       </div>
     </div>
 {% endblock %}

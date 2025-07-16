@@ -3,7 +3,7 @@ from eshop_products.models import Product, ProductGallery
 
 # Register your models here.
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['__str__','title','price','active','featured']
+    list_display = ['__str__','title','publisher_name','course_duration','price','active','featured']
 
     class Meta:
         model = Product

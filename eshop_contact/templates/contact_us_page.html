@@ -5,30 +5,25 @@
     <div class="container">
       <!-- Breadcrumb Start-->
       <ul class="breadcrumb">
-        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-        <li><a href="contact-us.html">تماس با ما</a></li>
+        <li><a href="/#"><i class="fa fa-home"></i></a></li>
+        <li><a href="{% url 'contact' %}">تماس با ما</a></li>
       </ul>
       <!-- Breadcrumb End-->
       <div class="row">
         <!--Middle Part Start-->
         <div id="content" class="col-sm-9">
           <h1 class="title">تماس با ما</h1>
-          <h3 class="subtitle">محل ما</h3>
           <div class="row">
-            <div class="col-sm-3"><img src="{{setting.logo.url}}" alt="قالب مارکت شاپ" title="قالب مارکت شاپ" class="img-thumbnail"></div>
-            <div class="col-sm-3"><strong>قالب مارکت شاپ</strong><br>
+            <div class="col-sm-3"><img src="{% static "image/image/codity.png" %}" alt="فروشگاه کدیتی" title="فروشگاه کدیتی" class="img-thumbnail" style="border:none;"></div>
+            <div class="col-sm-3"><strong>فروشگاه کدیتی</strong><br>
               <address>{{setting.adress}}</address>
             </div>
             <div class="col-sm-3"><strong>شماره تلفن</strong><br>
               {{setting.phone}}
               <br>
               <strong>فکس</strong><br>
-              {{setting.fax}} </div>
-            <div class="col-sm-3"> <strong>ساعات کار</strong><br>
-              خدمات مشتریان 24x7<br>
-              <br>
-              <strong>دیدگاه ها</strong><br>
-              در اینجا توضیحات دلخواه خود را قرار دهید. فروشگاه چک قبول نمیکند! </div>
+              {{setting.fax}} 
+            </div>
           </div>
           <form class="form-horizontal" method="post">
                 {% csrf_token %}
@@ -77,16 +72,6 @@
             </div>
           </form>
         </div>
-        <aside id="column-right" class="col-sm-3 hidden-xs">
-          <div class="list-group">
-            <h2 class="subtitle">محتوای سفارشی</h2>
-              <p>{{setting.about}}</p>
-          </div>
-          <div class="banner owl-carousel owl-theme" style="opacity: 1; display: block;">
-            <div class="owl-wrapper-outer"><div class="owl-wrapper" style="width: 1052px; left: 0px; display: block; transition: all; transform: translate3d(-263px, 0px, 0px); transform-origin: 394.5px center 0px; perspective-origin: 394.5px center;"><div class="owl-item" style="width: 263px;"><div class="item"> <a href="#"><img src="{% static 'image/banner/small-banner1-265x350.jpg' %}" alt="small banner" class="img-responsive"></a> </div></div><div class="owl-item" style="width: 263px;"><div class="item"> <a href="#"><img src="{% static 'image/banner/small-banner-265x350.jpg' %}" alt="small banner1" class="img-responsive"></a> </div></div></div></div>
-
-          </div>
-        </aside>
         <!--Middle Part End -->
       </div>
     </div>

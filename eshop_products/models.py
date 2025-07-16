@@ -46,6 +46,8 @@ class Product(models.Model):
     categories = models.ManyToManyField(ProductCategory, blank=True, verbose_name='دسته بندی')
     featured = models.BooleanField(default=False, verbose_name='محصول ویژه')
     visits = models.IntegerField(default=0, verbose_name='تعداد مشاهده')
+    publisher_name = models.CharField(max_length=255, null=True, blank=True, verbose_name="نام ناشر")
+    course_duration = models.CharField(max_length=155, null=True, blank=True, verbose_name="مدت زمان دوره")
 
     objects = ProductManager()
 

@@ -35,8 +35,10 @@
                     <p class="price"><span>{{product.price}} تومان</span></p>
                   </div>
                   <div class="button-group">
-                    <button class="btn-primary" type="button" onClick="cart.add('42');"><span>افزودن به سبد</span></button>
-                </div>
+                    <a href="{{product.get_product_detail_url}}">
+                      <button class="btn-primary" type="button"><span>مشاهده محصول</span></button>
+                    </a>
+                  </div>
               </div>
             {% endfor %}
           </div>
@@ -53,7 +55,9 @@
                     <p class="price"><span>{{product.price}} تومان</span></p>
                   </div>
                   <div class="button-group">
-                    <button class="btn-primary" type="button" onClick="cart.add('42');"><span>افزودن به سبد</span></button>
+                    <a href="{{product.get_product_detail_url}}">
+                      <button class="btn-primary" type="button"><span>مشاهده محصول</span></button>
+                    </a>
                 </div>
               </div>
             {% endfor %}
@@ -71,7 +75,9 @@
                     <p class="price"><span>{{product.price}} تومان</span></p>
                   </div>
                   <div class="button-group">
-                    <button class="btn-primary" type="button" onClick="cart.add('42');"><span>افزودن به سبد</span></button>
+                    <a href="{{product.get_product_detail_url}}">
+                      <button class="btn-primary" type="button"><span>مشاهده محصول</span></button>
+                    </a>
                 </div>
               </div>
             {% endfor %}

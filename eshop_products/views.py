@@ -33,12 +33,17 @@ def product_detail(request, *args, **kwargs):
 
     product.visits += 1
     product.save()
+    
+    featured_products = Product.objects.filter(featured=True)
+
 
     context = {
         'product':product,
         'gallery':gallery,
         'related_products':related_products,
-        'new_order_form':new_order_form
+        'new_order_form':new_order_form,
+        'featured_products':featured_products,
+        
     }
     tag = Tag.objects.first()
     # print(tag)

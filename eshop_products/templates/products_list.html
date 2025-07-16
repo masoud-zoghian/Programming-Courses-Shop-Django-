@@ -5,8 +5,8 @@
 <div class="container">
       <!-- Breadcrumb Start-->
       <ul class="breadcrumb">
-        <li><a href="index.html"><i class="fa fa-home"></i></a></li>
-        <li><a href="category.html">محصولات</a></li>
+        <li><a href="/#"><i class="fa fa-home"></i></a></li>
+        <li><a href="{% url 'products:products_list' %}">محصولات</a></li>
       </ul>
       <!-- Breadcrumb End-->
       <div class="row">
@@ -38,7 +38,6 @@
                 {% endif %}
               </ul>
             </div>
-            <div class="col-sm-6 text-right">نمایش 1 تا 12 از 15 (مجموع 2 صفحه)</div>
           </div>
         </div>
         <!--Middle Part End -->
